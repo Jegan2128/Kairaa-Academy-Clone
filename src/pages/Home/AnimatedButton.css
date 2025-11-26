@@ -1,0 +1,18 @@
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.borderbutton {
+  width: 200px;
+  height: 40px;
+  background: linear-gradient(45deg, rgb(233, 76, 220), rgb(76, 40, 228));
+  animation: rotate 5s linear infinite;
+  position: absolute;
+  top: 10px;
+  left: -25px;
+}
