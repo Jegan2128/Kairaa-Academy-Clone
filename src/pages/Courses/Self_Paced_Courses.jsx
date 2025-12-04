@@ -22,7 +22,7 @@ export default function Self_Paced_Courses(){
           </Link>
         </div>
       </div>
-      <div className="w-full md:w-[20%]">
+      <div className="w-full md:w-[20%] ">
         <img
           className="animate-shake rounded-2xl"
           src="https://kairaablockchainacademy.com/static/media/bgHero.10e711a0507eeab68623.jpg"
@@ -54,8 +54,8 @@ export default function Self_Paced_Courses(){
 </div>
 
 <div className="animate-fadeInRight container mx-auto gap-8 px-10 py-10">
-  <div className="xs:flex-row flex items-center justify-center gap-10">
-    <div className="md:w-1/2">
+  <div className="md:flex items-center justify-center gap-10">
+    <div className="md:w-1/2 ">
       <img
         src="https://kairaablockchainacademy.com/static/media/Certification.0f55de2bd10a24629cfe.png"
         alt=""
@@ -76,7 +76,7 @@ export default function Self_Paced_Courses(){
 </div>
 
 <div className="animate-fadeInRight container mx-auto gap-8 px-10 py-10">
-  <div className="xs:flex-row flex items-center justify-center gap-10">
+  <div className="md:flex items-center justify-center gap-10">
     <div className="md:w-3/4">
       <h1 className="font-headingFont mb-5 text-2xl font-bold sm:text-3xl">
         Learn and earn blockchain-powered digital certificates.
@@ -98,7 +98,7 @@ export default function Self_Paced_Courses(){
 </div>
 
 <div className="animate-fadeInRight container mx-auto gap-8 px-10 py-10">
-  <div className="xs:flex-row flex items-center justify-center gap-10">
+  <div className="md:flex items-center justify-center gap-10">
     <div className="md:w-1/2">
       <img
         src="https://kairaablockchainacademy.com/static/media/ContactUsAnytime.08a971282f9b74132a9f.png"

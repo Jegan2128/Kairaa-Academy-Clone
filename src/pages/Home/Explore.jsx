@@ -13,7 +13,7 @@ export default function Explore() {
         </h3>
       </div>
 
-      <div className="container grid grid-cols-2 md:grid-cols-3 justify-center items-center mx-10 p-2">
+      <div className="container grid grid-cols-1 md:grid-cols-3 justify-center items-center md:mx-10 p-2">
         <div className="m-10 text-center rounded-2xl bg-[#f1f4f9] transform transition duration-800 hover:scale-105 hover:shadow-2xl shadow-[0_8px_8px_rgba(0,0,0,0.15)]">
           <img
             src="https://kairaablockchainacademy.com/static/media/HomeBlock1.19f49069582c30d0b5aa.png"
@@ -105,7 +105,7 @@ export default function Explore() {
           <h1 className="mt-10 font-bold text-4xl text-center">Why choose us?</h1>
       
 
-      <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 justify-center items-center">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 justify-center items-center">
         <div className="m-10 text-center rounded-2xl bg-white">
           <img
             src="https://kairaablockchainacademy.com/static/media/whychoose2.f9c2ab0e5d386978f17d.png"

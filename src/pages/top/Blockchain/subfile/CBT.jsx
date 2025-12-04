@@ -13,13 +13,13 @@ export default function CBT (){
                 Certified Blockchain Trainer
             </h2>
 
-            <p className="py-3 text-lg font-bold">
+            <p className="py-3 text-lg font-bold text-white">
               This course is eligible for Certified Blockchain Developer to become Blockchain Trainer.
             </p>
 
             <div className="py-3">
               <Link to="/pages/Courses/Course_Registration">
-                <button className="animate-shake rounded-md bg-white p-2 py-3 text-center text-lg hover:cursor-pointer active:bg-blue-500">
+                <button className="animate-hanging rounded-md bg-white p-2 py-3 text-center text-lg hover:cursor-pointer hover:text-blue-500 active:bg-blue-500">
                   Register Now
                 </button>
               </Link>

@@ -107,10 +107,10 @@ useEffect(() => {
       </div>
 
       {/* Skill Page */}
-      <div className="container mx-auto bg-gray-100 px-24 text-center">
+      <div className="container mx-auto bg-gray-100 md:px-24 md:text-center">
         <div className="p-8">
           <h1 className="my-10 text-4xl font-bold text-[#15255f]">Learn in-demand <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0d839d] to-[#ba6aec]">tech skills </span></h1>
-          <p className="my-5 text-xl leading-10">
+          <p className="my-5 text-xl leading-10 ">
             At Kairaa Blockchain Academy, we believe in the power of technology and the importance of making it accessible to everyone. We are proud to offer a range of courses on programming languages, all taught in Tamil.
           </p>
           <p className="my-5 text-xl leading-10">
@@ -141,7 +141,7 @@ useEffect(() => {
           alt="Banner"
         />
       </div>
-      <div className="pr-24 text-center">
+      <div className="md:pr-24 text-center">
         <h1 className="my-6 text-center text-3xl leading-10 font-sans font-bold text-[#15255f]">
           What sets <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0d839d] to-[#ba6aec]"> Kairaa Blockchain Academy apart?</span>
         </h1>

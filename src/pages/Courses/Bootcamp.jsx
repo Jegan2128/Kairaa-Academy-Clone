@@ -15,7 +15,7 @@ export default function Bootcamp() {
       </div>
 
       {/* WHO IS IT FOR ? */}
-      <div className="mx-auto flex items-center justify-between">
+      <div className="mx-auto md:flex items-center justify-between">
         <div className="mx-10 space-y-5">
           <h1 className="text-2xl font-semibold">What You Will Learn?</h1>
           <ul className="text-lg leading-loose">
@@ -32,7 +32,7 @@ export default function Bootcamp() {
           </ul>
         </div>
         <div className="mx-16 w-2/5">
-          <img src="https://kairaablockchainacademy.com/static/media/bootcamp.bed1654fa41b27c83600.png" alt="Bootcamp" />
+          <img src="https://kairaablockchainacademy.com/static/media/bootcamp.bed1654fa41b27c83600.png" className="object-cover" alt="Bootcamp" />
         </div>
       </div>
 

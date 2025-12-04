@@ -6,9 +6,9 @@ export default function Footer() {
     <>
       {/* Footer Page */}
       <div className="container justify-between max-w-full items-center mx-auto text-blue-500 bg-[#ede5fc]">
-        <div className="grid grid-cols-2 md:grid-cols-4 p-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 p-8">
           {/* Logo & Description */}
-          <div className="leading-8 mx-8">
+          <div className="leading-8 md:mx-8">
             <img
               src="https://kairaablockchainacademy.com/static/media/footerLogo2.17ae7cb1ddfdb89591c7.png"
               className="h-40 w-40"
@@ -51,7 +51,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="m-12 leading-12">
+          <div className="md:m-12 md:leading-12 leading-8">
             <h1 className="text-2xl font-bold">Quick Links</h1>
             <ul className="font-medium">
               <Link to="/Aboutus">About Us</Link>
@@ -68,7 +68,7 @@ export default function Footer() {
           </div>
 
           {/* Branches */}
-          <div className="m-12 leading-12">
+          <div className="md:m-12 md:leading-12 leading-8">
             <h1 className="text-2xl font-bold">Branches</h1>
             <div className="grid md:grid-cols-2 gap-x-20">
               <ul className="font-medium">Chennai</ul>
@@ -83,7 +83,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="m-12 leading-12">
+          <div className="md:m-12 md:leading-12 leading-8">
             <h1 className="text-2xl font-bold">Contact</h1>
             <ul className="font-medium">
               <a href="tel:+91 7092774077">+91 7092774077</a>

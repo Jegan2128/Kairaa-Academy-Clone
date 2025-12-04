@@ -48,7 +48,7 @@ export default function BlogCard() {
            
         }}
       >
-        <h2 className="font-bold absolute top-1/3 left-12 mx-auto md:text-[40px] text-2xl font-headingFont">
+        <h2 className="font-bold absolute top-1/3 left-12 mx-auto md:text-[40px] text-4xl font-headingFont">
           Kairaa Blockchain Academy's Blog
         </h2>
       </div>

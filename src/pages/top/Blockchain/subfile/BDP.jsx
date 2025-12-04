@@ -12,13 +12,13 @@ export default function BDP (){
                 Learn Blockchain Developer Professional
             </h2>
 
-            <p className="py-3 text-lg font-bold">
+            <p className="py-3 text-lg font-bold text-white">
               Learn about the blockchain developer professional course, relevant skills, and technical FAQ.
             </p>
 
             <div className="py-3">
               <Link to="/pages/Courses/Course_Registration">
-                <button className="animate-shake rounded-md bg-white p-2 py-3 text-center text-lg hover:cursor-pointer active:bg-blue-500">
+                <button className="animate-hanging rounded-md bg-white p-2 py-3 text-center text-lg hover:cursor-pointer hover:text-blue-500 active:bg-blue-500">
                   Register Now
                 </button>
               </Link>
