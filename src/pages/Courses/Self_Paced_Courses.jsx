@@ -162,172 +162,172 @@ export default function Self_Paced_Courses(){
     {/* --- CARD 1 --- */}
     <div className="min-w-[15rem] rounded-md bg-slate-100 p-2 shadow-lg transition-transform duration-1000 ease-in-out hover:scale-110">
       <div className="overflow-hidden p-2">
-        <a href="/course/selfpaced-course/1">
+        <Link to="/pages/top/Blockchain/subfile/BCF">
           <img
             className="rounded"
             src="https://kairaablockchainacademy.com/static/media/newblockchain.07402beac2012389e1ae.jpg"
             alt=""
           />
-        </a>
+        </Link>
       </div>
       <h2 className="text-lg font-medium">Blockchain Developer Fundamental</h2>
-      <a href="/course/selfpaced-course/1">
-        <button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
+      
+        <Link to="/pages/top/Blockchain/subfile/BCF"><button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
           Learn Now
-        </button>
-      </a>
+        </button></Link>
+      
     </div>
 
     {/* --- CARD 2 --- */}
     <div className="min-w-[15rem] rounded-md bg-slate-100 p-2 shadow-lg transition-transform duration-1000 ease-in-out hover:scale-110">
       <div className="overflow-hidden p-2">
-        <a href="/course/selfpaced-course/2">
+        <Link to="/pages/top/Blockchain/subfile/BDP">
           <img
             className="rounded"
             src="https://kairaablockchainacademy.com/static/media/blockchaindevprofessional.185505bea1923dd5be2c.jpg"
             alt=""
           />
-        </a>
+        </Link>
       </div>
       <h2 className="text-lg font-medium">Blockchain Developer Professional</h2>
-      <a href="/course/selfpaced-course/2">
-        <button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
+      
+        <Link to="/pages/top/Blockchain/subfile/BDP"><button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
           Learn Now
-        </button>
-      </a>
+        </button></Link>
+     
     </div>
 
     {/* --- CARD 3 --- */}
     <div className="min-w-[15rem] rounded-md bg-slate-100 p-2 shadow-lg transition-transform duration-1000 ease-in-out hover:scale-110">
       <div className="overflow-hidden p-2">
-        <a href="/course/selfpaced-course/3">
+        <Link to="/pages/top/Blockchain/subfile/BDE">
           <img
             className="rounded"
             src="https://kairaablockchainacademy.com/static/media/blocktechnology.871e1ce5d0051c743832.webp"
             alt=""
           />
-        </a>
+        </Link>
       </div>
       <h2 className="text-lg font-medium">Blockchain Developer Expert</h2>
-      <a href="/course/selfpaced-course/3">
-        <button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
+      
+        <Link to="/pages/top/Blockchain/subfile/BDE"><button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
           Learn Now
-        </button>
-      </a>
+        </button></Link>
+     
     </div>
 
     {/* --- CARD 4 --- */}
     <div className="min-w-[15rem] rounded-md bg-slate-100 p-2 shadow-lg transition-transform duration-1000 ease-in-out hover:scale-110">
       <div className="overflow-hidden p-2">
-        <a href="/course/selfpaced-course/4">
+        <Link to="/pages/top/Blockchain/subfile/SSP">
           <img
             className="rounded"
             src="https://kairaablockchainacademy.com/static/media/Solidity-Programming-Language.53bb67d11d229f04b6ef.jpg"
             alt=""
           />
-        </a>
+        </Link>
       </div>
       <h2 className="text-lg font-medium">A Complete Solidity for Smart Programming</h2>
-      <a href="/course/selfpaced-course/4">
-        <button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
+      
+        <Link to="/pages/top/Blockchain/subfile/SSP"><button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
           Learn Now
-        </button>
-      </a>
+        </button></Link>
+      
     </div>
 
     {/* --- CARD 5 --- */}
     <div className="min-w-[15rem] rounded-md bg-slate-100 p-2 shadow-lg transition-transform duration-1000 ease-in-out hover:scale-110">
       <div className="overflow-hidden p-2">
-        <a href="/course/selfpaced-course/5">
+        <Link to="/pages/top/Blockchain/subfile/CBT">
           <img
             className="rounded"
             src="https://kairaablockchainacademy.com/static/media/blockchain-trainer.06b6cd57f348516731b7.png"
             alt=""
           />
-        </a>
+        </Link>
       </div>
       <h2 className="text-lg font-medium">Certified Blockchain Trainer</h2>
-      <a href="/course/selfpaced-course/5">
-        <button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
+      
+        <Link to="/pages/top/Blockchain/subfile/CBT"><button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
           Learn Now
-        </button>
-      </a>
+        </button></Link>
+      
     </div>
 
     {/* --- CARD 6 --- */}
     <div className="min-w-[15rem] rounded-md bg-slate-100 p-2 shadow-lg transition-transform duration-1000 ease-in-out hover:scale-110">
       <div className="overflow-hidden p-2">
-        <a href="/course/selfpaced-course/6">
+        <Link to="/pages/top/Other_Course/C">
           <img
             className="rounded"
             src="https://kairaablockchainacademy.com/static/media/newc.6b0fa2229ef926831ff8.jpg"
             alt=""
           />
-        </a>
+        </Link>
       </div>
       <h2 className="text-lg font-medium">C programming Course in online</h2>
-      <a href="/course/selfpaced-course/6">
-        <button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
+      
+        <Link to="/pages/top/Other_Course/C"><button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
           Learn Now
-        </button>
-      </a>
+        </button></Link>
+      
     </div>
 
     {/* --- CARD 7 --- */}
     <div className="min-w-[15rem] rounded-md bg-slate-100 p-2 shadow-lg transition-transform duration-1000 ease-in-out hover:scale-110">
       <div className="overflow-hidden p-2">
-        <a href="/course/selfpaced-course/7">
+         <Link to="/pages/top/Other_Course/CPP">
           <img
             className="rounded"
             src="https://kairaablockchainacademy.com/static/media/newc.6b0fa2229ef926831ff8.jpg"
             alt=""
           />
-        </a>
+        </Link>
       </div>
       <h2 className="text-lg font-medium">CPP Course in Online</h2>
-      <a href="/course/selfpaced-course/7">
-        <button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
+      
+        <Link to="/pages/top/Other_Course/CPP"><button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
           Learn Now
-        </button>
-      </a>
+        </button></Link>
+      
     </div>
 
     {/* --- CARD 8 --- */}
     <div className="min-w-[15rem] rounded-md bg-slate-100 p-2 shadow-lg transition-transform duration-1000 ease-in-out hover:scale-110">
       <div className="overflow-hidden p-2">
-        <a href="/course/selfpaced-course/8">
+        <Link to="/pages/top/Other_Course/Java">
           <img
             className="rounded"
             src="https://kairaablockchainacademy.com/static/media/newjava.3a172ddcf858b246bb26.jpg"
             alt=""
           />
-        </a>
+        </Link>
       </div>
       <h2 className="text-lg font-medium">Advanced java Course</h2>
-      <a href="/course/selfpaced-course/8">
-        <button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
+      
+        <Link to="/pages/top/Other_Course/Java"><button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
           Learn Now
-        </button>
-      </a>
+        </button></Link>
+      
     </div>
 
     {/* --- CARD 9 --- */}
     <div className="min-w-[15rem] rounded-md bg-slate-100 p-2 shadow-lg transition-transform duration-1000 ease-in-out hover:scale-110">
       <div className="overflow-hidden p-2">
-        <a href="/course/selfpaced-course/9">
+        <Link to="/pages/top/Other_Course/Flutters">
           <img
             className="rounded"
             src="https://kairaablockchainacademy.com/static/media/newFlutter.c255e7e0517394ad2cc0.jpg"
             alt=""
           />
-        </a>
+        </Link>
       </div>
       <h2 className="text-lg font-medium">Flutter Online Course</h2>
-      <a href="/course/selfpaced-course/9">
-        <button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
+      
+        <Link to="/pages/top/Other_Course/Flutters"><button className="rounded bg-gradient-to-r from-cyan-500 to-[#CB77F7] p-3 text-lg text-white hover:bg-blue-600">
           Learn Now
-        </button>
-      </a>
+        </button></Link>
+      
     </div>
   </div>
   <div className="md:px-10 p-4 max-w-screen-4xl mx-auto">

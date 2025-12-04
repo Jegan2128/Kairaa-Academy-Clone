@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useEffect, useRef, useState } from "react";
 import Overviewflutter from "../Overviewflutter";
 import Syllabusflutter from "../Syllabusflutter";
 
@@ -9,57 +9,79 @@ export default function CPPtabs({
     { id: "overview", label: "Overview", content:  <Overviewflutter /> },
     { id: "syllabus", label: "Syllabus", content: <Syllabusflutter/> },
   ],
-  defaultIndex = 0,
-  className = "",
-}) {
-  const [active, setActive] = useState(defaultIndex);
-  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
-  const tabsRef = useRef([]);
-  const listRef = useRef(null);
-
-  // measure active tab to position indicator
-  useEffect(() => {
-    const el = tabsRef.current[active];
-    if (!el) return;
-    const parentRect = listRef.current?.getBoundingClientRect();
-    const rect = el.getBoundingClientRect();
-    const left = rect.left - (parentRect?.left ?? 0) + (listRef.current?.scrollLeft ?? 0);
-    setIndicatorStyle({ left, width: rect.width });
-  }, [active, tabs]);
-
-  // Re-measure on window resize
-  useEffect(() => {
-    function handleResize() {
+    defaultIndex = 0,
+    className = "",
+  }) {
+    const [active, setActive] = useState(defaultIndex);
+    const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+    const tabsRef = useRef([]);
+    const listRef = useRef(null);
+    const resizeTimerRef = useRef(null);
+  
+    // measure active tab to position indicator (useLayoutEffect for layout reads)
+    useLayoutEffect(() => {
       const el = tabsRef.current[active];
       if (!el || !listRef.current) return;
+  
       const parentRect = listRef.current.getBoundingClientRect();
       const rect = el.getBoundingClientRect();
-      const left = rect.left - parentRect.left + listRef.current.scrollLeft;
-      setIndicatorStyle({ left, width: rect.width });
+      const left = rect.left - parentRect.left + (listRef.current.scrollLeft || 0);
+      const width = rect.width;
+  
+      // guard: only update state when values actually changed
+      setIndicatorStyle((prev) => {
+        if (prev.left === left && prev.width === width) return prev;
+        return { left, width };
+      });
+    }, [active, tabs]);
+  
+    // Re-measure on window resize (debounced + guarded)
+    useEffect(() => {
+      function handleResize() {
+        if (resizeTimerRef.current) clearTimeout(resizeTimerRef.current);
+        resizeTimerRef.current = setTimeout(() => {
+          const el = tabsRef.current[active];
+          if (!el || !listRef.current) return;
+          const parentRect = listRef.current.getBoundingClientRect();
+          const rect = el.getBoundingClientRect();
+          const left = rect.left - parentRect.left + (listRef.current.scrollLeft || 0);
+          const width = rect.width;
+  
+          setIndicatorStyle((prev) => {
+            if (prev.left === left && prev.width === width) return prev;
+            return { left, width };
+          });
+        }, 80);
+      }
+  
+      window.addEventListener("resize", handleResize);
+      return () => {
+        window.removeEventListener("resize", handleResize);
+        if (resizeTimerRef.current) {
+          clearTimeout(resizeTimerRef.current);
+          resizeTimerRef.current = null;
+        }
+      };
+    }, [active, tabs]);
+  
+    // keyboard navigation (ArrowLeft/Right, Home/End)
+    function onKeyDown(e) {
+      const isPlainKey = !e.altKey && !e.metaKey && !e.ctrlKey && !e.shiftKey;
+  
+      if (isPlainKey && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) {
+        e.preventDefault();
+  
+        if (e.key === "ArrowRight") {
+          setActive((s) => Math.min(s + 1, tabs.length - 1));
+        } else if (e.key === "ArrowLeft") {
+          setActive((s) => Math.max(s - 1, 0));
+        } else if (e.key === "Home") {
+          setActive(0);
+        } else if (e.key === "End") {
+          setActive(tabs.length - 1);
+        }
+      }
     }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [active]);
-
-  // keyboard navigation (ArrowLeft/Right, Home/End)
-  function onKeyDown(e) {
-  const isPlainKey = !e.altKey && !e.metaKey && !e.ctrlKey && !e.shiftKey;
-
-  if (isPlainKey && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) {
-    e.preventDefault();
-
-    if (e.key === "ArrowRight") {
-      setActive((s) => Math.min(s + 1, tabs.length - 1));
-    } else if (e.key === "ArrowLeft") {
-      setActive((s) => Math.max(s - 1, 0));
-    } else if (e.key === "Home") {
-      setActive(0);
-    } else if (e.key === "End") {
-      setActive(tabs.length - 1);
-    }
-  }
-}
-
 
   return (
     <div className="">

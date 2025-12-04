@@ -53,6 +53,7 @@ const BDE = lazy (() => import("./pages/top/Blockchain/subfile/BDE"))
 const CBT = lazy (() => import("./pages/top/Blockchain/subfile/CBT"))
 const SSP = lazy (() => import("./pages/top/Blockchain/subfile/SSP"))
 const CPP = lazy (() => import("./pages/top/Other_Course/CPP"))
+const C = lazy (() => import("./pages/top/Other_Course/C"))
 const Flutters = lazy (() => import("./pages/top/Other_Course/Flutters"))
 const Java = lazy (() => import("./pages/top/Other_Course/Java"))
 const Mysql = lazy (() => import("./pages/top/Other_Course/Mysql"))
@@ -118,6 +119,7 @@ export default function App() {
             <Route path="/pages/top/Blockchain/subfile/CBT" element={<CBT/>}/>
             <Route path="/pages/top/Blockchain/subfile/SSP" element={<SSP/>}/>
             <Route path="/pages/top/Other_Course/CPP" element={<CPP/>}/>
+            <Route path="/pages/top/Other_Course/C" element={<C/>}/>
             <Route path="/pages/top/Other_Course/Java" element={<Java/>}/>
             <Route path="/pages/top/Other_Course/Flutters" element={<Flutters/>}/>
             <Route path="/pages/top/Other_Course/Mysql" element={<Mysql/>}/>
@@ -125,14 +127,8 @@ export default function App() {
             <Route path="/pages/top/Other_Course/Webdev" element={<Webdev/>}/>
             <Route path="/pages/Home/Explore/blockdevfun" element={<Blockdevfun/>}/>
             <Route path="/pages/Home/Explore/blockdevpro" element={<Blockdevpro/>}/>
-            <Route path="/pages/Home/Explore/blockdevexp" element={<Blockdevexp/>}/>
-
-            
-            {/* Example protected route group (uncomment when using) */}
-            {/* <Route element={<ProtectedRoute isAuthenticated={!!user} redirectTo="/login" />}>
-              <Route path="/profile" element={<Profile />} />
-            </Route> */}
-
+            <Route path="/pages/Home/Explore/blockdevexp" element={<Blockdevexp/>}/> 
+          
             {/* Redirects and fallbacks */}
             <Route path="/" element={<Navigate to="/" />} />
             <Route path="/" element={<Navigate to="/" />} />

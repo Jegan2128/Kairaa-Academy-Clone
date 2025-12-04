@@ -28,9 +28,10 @@ export default function Blockchain_D() {
                 <h1 className="rounded-lg bg-blue-300 p-2 text-center text-lg font-semibold">Blockchain Developer Fundamental</h1>
               </div>
             </div>
-            <div className="mx-10 mb-10 px-2 text-lg leading-relaxed">
-              <p className="">Blockchain Fundamentals utilizes a hybrid learning approach to help you build and demonstrate an understanding of blockchain concepts, usage and considerations. Learn how to leverage yourin-demand knowledge and ability in blockchain to elevate your IT career.</p>
-              <Link to="/pages/top/Blockchain/subfile/BCF"><button className="mt-4 ml-32 rounded-lg bg-gradient-to-r from-sky-400 to-pink-400 p-2 font-semibold text-white animate-bounce">View More</button></Link></div>
+              <div className="mx-10 mb-10 px-2 text-lg leading-relaxed">
+                <p className="">Blockchain Fundamentals utilizes a hybrid learning approach to help you build and demonstrate an understanding of blockchain concepts, usage and considerations. Learn how to leverage yourin-demand knowledge and ability in blockchain to elevate your IT career.</p>
+                <Link to="/pages/top/Blockchain/subfile/BCF"><button className="mt-4 ml-32 rounded-lg bg-gradient-to-r from-sky-400 to-pink-400 p-2 font-semibold text-white animate-bounce">View More</button></Link>
+              </div>
           </div>
         </div>
         <hr className="mt-2 border-gray-400" />

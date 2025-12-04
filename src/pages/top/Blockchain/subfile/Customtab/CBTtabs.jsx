@@ -1,12 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useEffect, useRef, useState } from "react";
 import OverviewCBT from "../OvervieWCBT";
 import SyllabusCBT from "../SyllabusCBT";
 
-
-
-export default function BDPTabs({
+export default function CBTTabs({
   tabs = [
-    { id: "overview", label: "Overview", content:  <OverviewCBT /> },
+    { id: "overview", label: "Overview", content: <OverviewCBT /> },
     { id: "syllabus", label: "Syllabus", content: <SyllabusCBT /> },
   ],
   defaultIndex = 0,
@@ -16,114 +14,135 @@ export default function BDPTabs({
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
   const tabsRef = useRef([]);
   const listRef = useRef(null);
+  const resizeTimerRef = useRef(null);
 
-  // measure active tab to position indicator
-  useEffect(() => {
+  // measure active tab to position indicator (useLayoutEffect for layout reads)
+  useLayoutEffect(() => {
     const el = tabsRef.current[active];
-    if (!el) return;
-    const parentRect = listRef.current?.getBoundingClientRect();
+    if (!el || !listRef.current) return;
+
+    const parentRect = listRef.current.getBoundingClientRect();
     const rect = el.getBoundingClientRect();
-    const left = rect.left - (parentRect?.left ?? 0) + (listRef.current?.scrollLeft ?? 0);
-    setIndicatorStyle({ left, width: rect.width });
+    const left = rect.left - parentRect.left + (listRef.current.scrollLeft || 0);
+    const width = rect.width;
+
+    // guard: only update state when values actually changed
+    setIndicatorStyle((prev) => {
+      if (prev.left === left && prev.width === width) return prev;
+      return { left, width };
+    });
   }, [active, tabs]);
 
-  // Re-measure on window resize
+  // Re-measure on window resize (debounced + guarded)
   useEffect(() => {
     function handleResize() {
-      const el = tabsRef.current[active];
-      if (!el || !listRef.current) return;
-      const parentRect = listRef.current.getBoundingClientRect();
-      const rect = el.getBoundingClientRect();
-      const left = rect.left - parentRect.left + listRef.current.scrollLeft;
-      setIndicatorStyle({ left, width: rect.width });
+      if (resizeTimerRef.current) clearTimeout(resizeTimerRef.current);
+      resizeTimerRef.current = setTimeout(() => {
+        const el = tabsRef.current[active];
+        if (!el || !listRef.current) return;
+        const parentRect = listRef.current.getBoundingClientRect();
+        const rect = el.getBoundingClientRect();
+        const left = rect.left - parentRect.left + (listRef.current.scrollLeft || 0);
+        const width = rect.width;
+
+        setIndicatorStyle((prev) => {
+          if (prev.left === left && prev.width === width) return prev;
+          return { left, width };
+        });
+      }, 80);
     }
+
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [active]);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (resizeTimerRef.current) {
+        clearTimeout(resizeTimerRef.current);
+        resizeTimerRef.current = null;
+      }
+    };
+  }, [active, tabs]);
 
   // keyboard navigation (ArrowLeft/Right, Home/End)
   function onKeyDown(e) {
-  const isPlainKey = !e.altKey && !e.metaKey && !e.ctrlKey && !e.shiftKey;
+    const isPlainKey = !e.altKey && !e.metaKey && !e.ctrlKey && !e.shiftKey;
 
-  if (isPlainKey && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) {
-    e.preventDefault();
+    if (isPlainKey && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) {
+      e.preventDefault();
 
-    if (e.key === "ArrowRight") {
-      setActive((s) => Math.min(s + 1, tabs.length - 1));
-    } else if (e.key === "ArrowLeft") {
-      setActive((s) => Math.max(s - 1, 0));
-    } else if (e.key === "Home") {
-      setActive(0);
-    } else if (e.key === "End") {
-      setActive(tabs.length - 1);
+      if (e.key === "ArrowRight") {
+        setActive((s) => Math.min(s + 1, tabs.length - 1));
+      } else if (e.key === "ArrowLeft") {
+        setActive((s) => Math.max(s - 1, 0));
+      } else if (e.key === "Home") {
+        setActive(0);
+      } else if (e.key === "End") {
+        setActive(tabs.length - 1);
+      }
     }
   }
-}
-
 
   return (
     <div className="">
-    <div className={`w-full ${className}`}>
-      {/* Tab list */}
-      <div className="relative">
-        <div
-          ref={listRef}
-          role="tablist"
-          aria-label="Custom tabs"
-          className="flex overflow-auto no-scrollbar justify-around"
-          onKeyDown={onKeyDown}
-        >
-          {tabs.map((t, i) => (
-            <button
-              key={t.id}
-              ref={(el) => (tabsRef.current[i] = el)}
-              role="tab"
-              id={`tab-${t.id}`}
-              aria-selected={active === i}
-              aria-controls={`panel-${t.id}`}
-              tabIndex={active === i ? 0 : -1}
-              onClick={() => setActive(i)}
-              className={`relative inline-flex items-center whitespace-nowrap rounded-2xl px-4 py-2 text-lg font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-400
-                ${
-                  active === i
-                    ? "bg-indigo-600 text-white shadow-lg"
-                    : "text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
-                }
-              `}
-            >
-              {t.label}
-              {/* optional ripple / click feedback element (purely decorative) */}
-            </button>
-          ))}
+      <div className={`w-full ${className}`}>
+        {/* Tab list */}
+        <div className="relative">
+          <div
+            ref={listRef}
+            role="tablist"
+            aria-label="Custom tabs"
+            className="flex overflow-auto no-scrollbar justify-around"
+            onKeyDown={onKeyDown}
+          >
+            {tabs.map((t, i) => (
+              <button
+                key={t.id}
+                ref={(el) => (tabsRef.current[i] = el)}
+                role="tab"
+                id={`tab-${t.id}`}
+                aria-selected={active === i}
+                aria-controls={`panel-${t.id}`}
+                tabIndex={active === i ? 0 : -1}
+                onClick={() => setActive(i)}
+                className={`relative inline-flex items-center whitespace-nowrap rounded-2xl px-4 py-2 text-lg font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-400
+                  ${
+                    active === i
+                      ? "bg-indigo-600 text-white shadow-lg"
+                      : "text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
+                  }
+                `}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+
+          {/* animated indicator */}
+          <div
+            aria-hidden
+            className="absolute bottom-0 h-0.5 bg-indigo-600 rounded-full transition-all duration-200"
+            style={{
+              transform: `translateX(${indicatorStyle.left}px)`,
+              width: indicatorStyle.width,
+            }}
+          />
         </div>
 
-        {/* animated indicator */}
-        <div
-          aria-hidden
-          className="absolute bottom-0 h-0.5 bg-indigo-600 rounded-full transition-all duration-200"
-          style={{
-            transform: `translateX(${indicatorStyle.left}px)`,
-            width: indicatorStyle.width,
-          }}
-        />
+        {/* Panels */}
+        <div className="mt-6">
+          {tabs.map((t, i) => (
+            <div
+              key={t.id}
+              role="tabpanel"
+              id={`panel-${t.id}`}
+              aria-labelledby={`tab-${t.id}`}
+              hidden={i !== active}
+              className={`outline-none focus:outline-none ${i === active ? "block" : "hidden"}`}
+            >
+              {t.content}
+            </div>
+          ))}
+        </div>
       </div>
-
-      {/* Panels */}
-      <div className="mt-6">
-        {tabs.map((t, i) => (
-          <div
-            key={t.id}
-            role="tabpanel"
-            id={`panel-${t.id}`}
-            aria-labelledby={`tab-${t.id}`}
-            hidden={i !== active}
-            className={`outline-none focus:outline-none ${i === active ? "block" : "hidden"}`}
-          >
-            {t.content}
-          </div>
-        ))}
-      </div>
-    </div>
     </div>
   );
 }

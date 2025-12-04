@@ -1,13 +1,13 @@
 import React, { useLayoutEffect, useEffect, useRef, useState } from "react";
-import Overviewphp from "../Overviewphp";
-import Syllabusphp from "../Syllabusphp";
+import OverviewC from "../OverviewC";
+import SyllabusC from "../SyllabusC";
 
 
 
-export default function Phptabs({
+export default function CPPtabs({
   tabs = [
-    { id: "overview", label: "Overview", content:  <Overviewphp /> },
-    { id: "syllabus", label: "Syllabus", content: <Syllabusphp/> },
+    { id: "overview", label: "Overview", content:  <OverviewC /> },
+    { id: "syllabus", label: "Syllabus", content: <SyllabusC/> },
   ],
     defaultIndex = 0,
     className = "",

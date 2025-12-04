@@ -94,14 +94,14 @@ export default function Explore() {
 
       {/* Explore Section */}
       <div className="text-center mx-auto container   justify-center m-5 items-center flex">
-  <a href="#">
+  <Link to="/courses/self-paced">
   <button className="relative border-2 border-emerald-200  bg-gradient-to-r from-cyan-500 to-[#CB77F7] duration-500 group cursor-pointer text-sky-50  overflow-hidden h-14 w-56 rounded rounded-bl-[90px] rounded-tr-[90px] hover:bg-sky-800 p-2 flex justify-center items-center font-extrabold">
   <div className="absolute z-10 w-48 h-48 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-gradient-to-r from-cyan-500 to-[#CB77F7] delay-150 group-hover:delay-75"></div>
   <div className="absolute z-10 w-40 h-40 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-gradient-to-r from-cyan-500 to-[#CB77F7] delay-150 group-hover:delay-100"></div>
   <div className="absolute z-10 w-32 h-32 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-gradient-to-r from-cyan-500 to-[#CB77F7] delay-150 group-hover:delay-150"></div>
   <div className="absolute z-10 w-24 h-24 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-gradient-to-r from-cyan-500 to-[#CB77F7] delay-150 group-hover:delay-200"></div>
   <div className="absolute z-10 w-16 h-16 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out  delay-150 group-hover:delay-300"></div>
-  <p className="z-10">Explore More</p></button></a></div>
+  <p className="z-10">Explore More</p></button></Link></div>
           <h1 className="mt-10 font-bold text-4xl text-center">Why choose us?</h1>
       
 
