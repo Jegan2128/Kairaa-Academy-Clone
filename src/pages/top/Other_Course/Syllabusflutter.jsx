@@ -213,15 +213,7 @@ export default function Syllabusflutter() {
         </div>
       ))}
 
-      {/* optional: show your uploaded screenshot (local path) */}
-      <div className="max-w-5xl mx-auto mt-6 p-3 bg-white/10 border border-blue-100 rounded">
-        <p className="text-sm">Screenshot (local):</p>
-        <img
-          src={"/mnt/data/7a9df346-03c2-4a12-aafb-20f03c04b57b.png"}
-          alt="screenshot"
-          className="mt-2 w-full object-contain rounded"
-        />
-      </div>
+      
     </div>
   );
 }
